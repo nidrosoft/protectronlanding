@@ -1,5 +1,5 @@
 [build]
-  command = "npm rebuild lightningcss && rm -rf .next && npm run build"
+  command = "npm ci && rm -rf .next && npm run build"
   publish = ".next"
 
 [build.environment]

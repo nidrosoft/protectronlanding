@@ -8,6 +8,9 @@
         "start": "next start",
         "postinstall": "npm rebuild lightningcss || true"
     },
+    "optionalDependencies": {
+        "lightningcss-linux-x64-gnu": "^1.28.2"
+    },
     "dependencies": {
         "@lobehub/icons": "^2.45.0",
         "@tailwindcss/postcss": "^4.1.11",

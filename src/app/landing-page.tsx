@@ -704,6 +704,107 @@ const HowItWorksSection = () => {
     );
 };
 
+const WhyProtectronWinsSection = () => {
+    const features = [
+        { feature: "EU AI Act-specific design", protectron: "Core focus", enterprise: "One of many", vanta: "Add-on", consultants: "Varies" },
+        { feature: "Risk classification engine", protectron: "Articles 5, 6, Annex III", enterprise: "Yes", vanta: "Yes", consultants: "Manual" },
+        { feature: "Document generation", protectron: "AI-powered", enterprise: "Templates", vanta: "Templates", consultants: "You write" },
+        { feature: "Requirements tracking", protectron: "Article-by-article", enterprise: "Yes", vanta: "Yes", consultants: "Manual" },
+        { feature: "Self-service signup", protectron: "Start now", enterprise: "Sales cycle", vanta: "Demo first", consultants: "Meetings" },
+        { feature: "Transparent pricing", protectron: "On website", enterprise: "Hidden", vanta: "Ranges only", consultants: "Quote required" },
+    ];
+
+    const renderCell = (value: string, isProtectron: boolean = false) => {
+        const isPositive = value === "Core focus" || value === "AI-powered" || value === "Start now" || value === "On website" || value === "Articles 5, 6, Annex III" || value === "Article-by-article" || value === "Yes";
+        const isNegative = value === "Hidden" || value === "Sales cycle" || value === "You write" || value === "Manual" || value === "Meetings" || value === "Quote required";
+        
+        if (isProtectron) {
+            return (
+                <span className="inline-flex items-center gap-1.5 font-medium text-success-600 dark:text-success-400">
+                    <TickCircle size={16} variant="Bold" className="shrink-0" />
+                    {value}
+                </span>
+            );
+        }
+        if (isNegative) {
+            return <span className="text-error-600 dark:text-error-400">{value}</span>;
+        }
+        if (value === "One of many" || value === "Add-on" || value === "Templates" || value === "Demo first" || value === "Ranges only" || value === "Varies") {
+            return <span className="text-warning-600 dark:text-warning-400">{value}</span>;
+        }
+        return <span className="text-secondary">{value}</span>;
+    };
+
+    return (
+        <section className="bg-primary py-16 md:py-24">
+            <div className="mx-auto w-full max-w-container px-4 md:px-8">
+                <motion.div 
+                    className="mx-auto flex w-full max-w-3xl flex-col items-center text-center"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+                    }}
+                >
+                    <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                        <span className="inline-flex items-center rounded-full border border-success-200 bg-success-50 px-3 py-1 text-sm font-semibold text-success-700 dark:border-success-800 dark:bg-success-900/30 dark:text-success-400">
+                            Why Us
+                        </span>
+                    </motion.div>
+                    <motion.h2 
+                        className="mt-3 text-display-sm font-semibold text-primary md:text-display-md"
+                        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                    >
+                        Why Protectron.ai Wins
+                    </motion.h2>
+                    <motion.p 
+                        className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl"
+                        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                    >
+                        While enterprise platforms treat EU AI Act as one of many frameworks, <strong className="text-primary">Protectron.ai is purpose-built for EU AI Act compliance</strong>. Every feature, every workflow, every document template is designed around the regulation's actual requirements.
+                    </motion.p>
+                </motion.div>
+
+                <motion.div 
+                    className="mt-12 overflow-x-auto md:mt-16"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={{
+                        hidden: { opacity: 0, y: 30 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+                    }}
+                >
+                    <table className="w-full min-w-[700px] border-collapse">
+                        <thead>
+                            <tr className="border-b border-secondary">
+                                <th className="px-4 py-4 text-left text-sm font-semibold text-tertiary">Feature</th>
+                                <th className="px-4 py-4 text-left text-sm font-semibold text-brand-600 dark:text-brand-400">Protectron.ai</th>
+                                <th className="px-4 py-4 text-left text-sm font-semibold text-tertiary">Enterprise Platforms</th>
+                                <th className="px-4 py-4 text-left text-sm font-semibold text-tertiary">Vanta</th>
+                                <th className="px-4 py-4 text-left text-sm font-semibold text-tertiary">Consultants</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {features.map((row) => (
+                                <tr key={row.feature} className="border-b border-secondary transition-colors hover:bg-secondary/50">
+                                    <td className="px-4 py-4 text-sm font-medium text-primary">{row.feature}</td>
+                                    <td className="px-4 py-4 text-sm">{renderCell(row.protectron, true)}</td>
+                                    <td className="px-4 py-4 text-sm">{renderCell(row.enterprise)}</td>
+                                    <td className="px-4 py-4 text-sm">{renderCell(row.vanta)}</td>
+                                    <td className="px-4 py-4 text-sm">{renderCell(row.consultants)}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </motion.div>
+            </div>
+        </section>
+    );
+};
+
 const PriceJustificationSection = () => {
     return (
         <section className="bg-secondary py-16 md:py-24">
@@ -1658,6 +1759,8 @@ const LandingPage = () => {
             <FeaturesSection />
 
             <PricingAbstractAngles />
+
+            <WhyProtectronWinsSection />
 
             <PriceJustificationSection />
 
