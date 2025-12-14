@@ -5,7 +5,8 @@
     "scripts": {
         "dev": "next dev --turbopack",
         "build": "next build",
-        "start": "next start"
+        "start": "next start",
+        "postinstall": "npm rebuild lightningcss || true"
     },
     "dependencies": {
         "@lobehub/icons": "^2.45.0",
