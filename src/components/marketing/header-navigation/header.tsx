@@ -21,6 +21,7 @@ type HeaderNavItem = {
 const headerNavItems: HeaderNavItem[] = [
     { label: "Features", href: "#features" },
     { label: "Pricing", href: "#pricing" },
+    { label: "Compare", href: "/compare" },
     { label: "EU AI Act Guide", href: "/guide" },
 ];
 
