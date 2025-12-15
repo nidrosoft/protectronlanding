@@ -76,7 +76,7 @@ const HeroSection = () => (
                         href="#" 
                         className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-md font-semibold text-white shadow-lg transition-all hover:bg-brand-700 hover:shadow-xl"
                     >
-                        Start Free Trial
+                        Get Started for Free
                         <ArrowRight size={18} />
                     </Link>
                     <Link 
@@ -97,7 +97,7 @@ const ComparisonTableSection = () => {
             name: "Protectron.ai", 
             bestFor: "Startups & SMBs", 
             time: "Days", 
-            cost: "$1,188 – $11,988", 
+            cost: "€1,188 – €11,988", 
             selfService: "yes",
             highlight: true 
         },
@@ -105,28 +105,28 @@ const ComparisonTableSection = () => {
             name: "Credo AI", 
             bestFor: "Fortune 500 enterprises", 
             time: "6-12 months", 
-            cost: "$50,000 – $200,000+", 
+            cost: "€50,000 – €200,000+", 
             selfService: "no" 
         },
         { 
             name: "Holistic AI", 
             bestFor: "Large enterprises", 
             time: "3-6 months", 
-            cost: "$40,000 – $150,000+", 
+            cost: "€40,000 – €150,000+", 
             selfService: "no" 
         },
         { 
             name: "Vanta", 
             bestFor: "Multi-compliance needs", 
             time: "2-4 months", 
-            cost: "$10,000 – $80,000", 
+            cost: "€10,000 – €80,000", 
             selfService: "partial" 
         },
         { 
             name: "Consultants / Law Firms", 
             bestFor: "Complex, high-budget", 
             time: "6-18 months", 
-            cost: "$50,000 – $400,000+", 
+            cost: "€50,000 – €400,000+", 
             selfService: "no" 
         },
         { 
@@ -167,7 +167,7 @@ const ComparisonTableSection = () => {
                         className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-sm font-semibold text-brand-700 dark:border-brand-800 dark:bg-brand-900/30 dark:text-brand-400"
                         variants={fadeInUp}
                     >
-                        <Chart size={16} variant="Bold" />
+                        <Chart size={16} variant="Bold" color="currentColor" />
                         At a Glance
                     </motion.span>
                     <motion.h2 
@@ -291,7 +291,7 @@ const CompetitorsSection = () => {
             description: "Enterprise AI governance platform recognized by Gartner and Forrester. Covers multiple regulations including EU AI Act, NIST RMF, and ISO 42001.",
             target: "Fortune 500 companies with dedicated GRC teams, large budgets, and 6+ month implementation timelines.",
             issues: [
-                { icon: <DollarCircle size={16} className="text-warning-500" />, text: "Pricing starts at ~$50,000/year — Custom enterprise contracts only" },
+                { icon: <DollarCircle size={16} className="text-warning-500" />, text: "Pricing starts at ~€50,000/year — Custom enterprise contracts only" },
                 { icon: <Timer1 size={16} className="text-warning-500" />, text: "Implementation takes 3-12 months — Requires professional services" },
                 { icon: <Building size={16} className="text-warning-500" />, text: "Built for enterprises — Overkill if you have 1-50 AI systems" },
                 { icon: <MessageQuestion size={16} className="text-warning-500" />, text: "No self-service — Must go through sales cycle just to see pricing" },
@@ -315,9 +315,9 @@ const CompetitorsSection = () => {
             description: "Trust management and compliance automation platform. Recently added EU AI Act support alongside SOC 2, ISO 27001, HIPAA, and 35+ other frameworks.",
             target: "Companies already using Vanta for security compliance who want to add EU AI Act.",
             issues: [
-                { icon: <DollarCircle size={16} className="text-warning-500" />, text: "Starts at $10,000/year — For basic compliance, scales to $80,000+ with add-ons" },
+                { icon: <DollarCircle size={16} className="text-warning-500" />, text: "Starts at €10,000/year — For basic compliance, scales to €80,000+ with add-ons" },
                 { icon: <Warning2 size={16} className="text-warning-500" />, text: "EU AI Act is an add-on — Not their core focus, added October 2024" },
-                { icon: <DollarCircle size={16} className="text-warning-500" />, text: "Hidden costs add up — VRM module ($11,200/year), advanced automation ($10,000-25,000/year)" },
+                { icon: <DollarCircle size={16} className="text-warning-500" />, text: "Hidden costs add up — VRM module (€11,200/year), advanced automation (€10,000-25,000/year)" },
                 { icon: <Timer1 size={16} className="text-warning-500" />, text: "Still requires significant setup — Expect 2-4 months to audit-ready" },
             ],
             bestFor: "Companies already invested in Vanta who need EU AI Act as one of several compliance frameworks."
@@ -350,7 +350,7 @@ const CompetitorsSection = () => {
                         className="inline-flex items-center gap-2 rounded-full border border-error-200 bg-error-50 px-3 py-1 text-sm font-semibold text-error-700 dark:border-error-800 dark:bg-error-900/30 dark:text-error-400"
                         variants={fadeInUp}
                     >
-                        <Warning2 size={16} variant="Bold" />
+                        <Warning2 size={16} variant="Bold" color="currentColor" />
                         The Problem with Enterprise Platforms
                     </motion.span>
                     <motion.h2 
@@ -423,7 +423,7 @@ const WhyProtectronSection = () => {
                         className="inline-flex items-center gap-2 rounded-full border border-success-200 bg-success-50 px-3 py-1 text-sm font-semibold text-success-700 dark:border-success-800 dark:bg-success-900/30 dark:text-success-400"
                         variants={fadeInUp}
                     >
-                        <ShieldTick size={16} variant="Bold" />
+                        <ShieldTick size={16} variant="Bold" color="currentColor" />
                         The Solution
                     </motion.span>
                     <motion.h2 
@@ -477,17 +477,17 @@ const WhyProtectronSection = () => {
 
 const PricingComparisonSection = () => {
     const plans = [
-        { name: "Starter", monthly: "$99", annual: "$1,188", bestFor: "1-2 AI systems, early-stage startups" },
-        { name: "Growth", monthly: "$299", annual: "$3,588", bestFor: "3-10 AI systems, growing companies" },
-        { name: "Scale", monthly: "$599", annual: "$7,188", bestFor: "10-25 AI systems, scaling teams" },
-        { name: "Enterprise", monthly: "$999", annual: "$11,988", bestFor: "25+ systems, large organizations" },
+        { name: "Starter", monthly: "€99", annual: "€1,188", bestFor: "1-2 AI systems, early-stage startups" },
+        { name: "Growth", monthly: "€299", annual: "€3,588", bestFor: "3-10 AI systems, growing companies" },
+        { name: "Scale", monthly: "€599", annual: "€7,188", bestFor: "10-25 AI systems, scaling teams" },
+        { name: "Enterprise", monthly: "€999", annual: "€11,988", bestFor: "25+ systems, large organizations" },
     ];
 
     const competitors = [
-        { name: "Credo AI", cost: "$50,000 – $200,000+/year" },
+        { name: "Credo AI", cost: "€50,000 – €200,000+/year" },
         { name: "Holistic AI", cost: "Custom enterprise pricing" },
-        { name: "Vanta", cost: "$10,000 – $80,000/year" },
-        { name: "Consultants", cost: "$50,000+ per project" },
+        { name: "Vanta", cost: "€10,000 – €80,000/year" },
+        { name: "Consultants", cost: "€50,000+ per project" },
     ];
 
     return (
@@ -504,7 +504,7 @@ const PricingComparisonSection = () => {
                         className="inline-flex items-center gap-2 rounded-full border border-success-200 bg-success-50 px-3 py-1 text-sm font-semibold text-success-700 dark:border-success-800 dark:bg-success-900/30 dark:text-success-400"
                         variants={fadeInUp}
                     >
-                        <DollarCircle size={16} variant="Bold" />
+                        <DollarCircle size={16} variant="Bold" color="currentColor" />
                         Pricing
                     </motion.span>
                     <motion.h2 
@@ -594,7 +594,7 @@ const SpeedSection = () => {
                         className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-sm font-semibold text-brand-700 dark:border-brand-800 dark:bg-brand-900/30 dark:text-brand-400"
                         variants={fadeInUp}
                     >
-                        <Flash size={16} variant="Bold" />
+                        <Flash size={16} variant="Bold" color="currentColor" />
                         Speed
                     </motion.span>
                     <motion.h2 
@@ -681,7 +681,7 @@ const WhoShouldUseSection = () => {
                 "Are a Fortune 500 or large enterprise",
                 "Have 100+ AI systems across the organization",
                 "Have a dedicated GRC/compliance team",
-                "Have $50,000+ annual compliance budget",
+                "Have €50,000+ annual compliance budget",
                 "Need deep integrations with existing MLOps infrastructure",
                 "Need multi-framework compliance (EU AI Act + NIST + ISO 42001)",
             ]
@@ -692,7 +692,7 @@ const WhoShouldUseSection = () => {
             items: [
                 "Already use Vanta for SOC 2 or ISO 27001",
                 "Need multi-framework compliance in one platform",
-                "Have $15,000-50,000+ annual budget",
+                "Have €15,000-50,000+ annual budget",
                 "Want to reuse existing compliance evidence",
             ]
         },
@@ -703,7 +703,7 @@ const WhoShouldUseSection = () => {
                 "Need legal opinions for board/investors",
                 "Have complex, unusual AI use cases",
                 "Require interpretation of edge cases in the regulation",
-                "Have $50,000+ budget for advisory services",
+                "Have €50,000+ budget for advisory services",
             ]
         },
     ];
@@ -748,7 +748,7 @@ const WhoShouldUseSection = () => {
                         className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-sm font-semibold text-brand-700 dark:border-brand-800 dark:bg-brand-900/30 dark:text-brand-400"
                         variants={fadeInUp}
                     >
-                        <People size={16} variant="Bold" />
+                        <People size={16} variant="Bold" color="currentColor" />
                         Who Should Use What
                     </motion.span>
                     <motion.h2 
@@ -817,7 +817,7 @@ const CostOfWaitingSection = () => {
                         className="inline-flex items-center gap-2 rounded-full border border-error-200 bg-error-50 px-3 py-1 text-sm font-semibold text-error-700 dark:border-error-800 dark:bg-error-900/30 dark:text-error-400"
                         variants={fadeInUp}
                     >
-                        <Danger size={16} variant="Bold" />
+                        <Danger size={16} variant="Bold" color="currentColor" />
                         Urgency
                     </motion.span>
                     <motion.h2 
@@ -897,7 +897,7 @@ const TestimonialsSection = () => {
                         className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-sm font-semibold text-brand-700 dark:border-brand-800 dark:bg-brand-900/30 dark:text-brand-400"
                         variants={fadeInUp}
                     >
-                        <Star1 size={16} variant="Bold" />
+                        <Star1 size={16} variant="Bold" color="currentColor" />
                         Testimonials
                     </motion.span>
                     <motion.h2 
@@ -954,7 +954,7 @@ const GetStartedSection = () => {
                         className="inline-flex items-center gap-2 rounded-full border border-success-200 bg-success-50 px-3 py-1 text-sm font-semibold text-success-700 dark:border-success-800 dark:bg-success-900/30 dark:text-success-400"
                         variants={fadeInUp}
                     >
-                        <Flash size={16} variant="Bold" />
+                        <Flash size={16} variant="Bold" color="currentColor" />
                         Get Started
                     </motion.span>
                     <motion.h2 
@@ -998,7 +998,7 @@ const GetStartedSection = () => {
                         href="#" 
                         className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-8 py-4 text-md font-semibold text-white shadow-lg transition-all hover:bg-brand-700 hover:shadow-xl"
                     >
-                        Start Free Trial
+                        Get Started for Free
                         <ArrowRight size={18} />
                     </Link>
                     <Link 
@@ -1007,13 +1007,7 @@ const GetStartedSection = () => {
                     >
                         See Pricing
                     </Link>
-                    <Link 
-                        href="#" 
-                        className="inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-8 py-4 text-md font-semibold text-primary shadow-sm transition-all hover:bg-secondary"
-                    >
-                        Book Demo
-                    </Link>
-                </motion.div>
+                                    </motion.div>
             </div>
         </section>
     );

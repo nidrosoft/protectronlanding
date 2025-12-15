@@ -4,8 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { LayersThree01, LayersTwo01, Zap, Rocket01, Building07 } from "@untitledui/icons";
 import { motion, useInView, useSpring, useTransform } from "motion/react";
 import { Badge } from "@/components/base/badges/badges";
-import { Toggle } from "@/components/base/toggle/toggle";
-import { BackgroundStripes } from "@/components/marketing/header-section/base-components/background-stripes";
 import { PricingTierCardIcon } from "@/components/marketing/pricing-sections/base-components/pricing-tier-card";
 
 // Animated counter component
@@ -66,7 +64,7 @@ export const PricingAbstractAngles = () => {
                 "Email support",
             ],
             icon: LayersTwo01,
-            buttonText: "Start Free Trial",
+            buttonText: "Get Started for Free",
         },
         {
             title: "Growth",
@@ -83,7 +81,7 @@ export const PricingAbstractAngles = () => {
                 "API access",
             ],
             icon: Rocket01,
-            buttonText: "Start Free Trial",
+            buttonText: "Get Started for Free",
         },
     ];
 
@@ -101,7 +99,7 @@ export const PricingAbstractAngles = () => {
                 "Regulatory alerts",
             ],
             icon: LayersThree01,
-            buttonText: "Start Free Trial",
+            buttonText: "Get Started for Free",
         },
         {
             title: "Enterprise",
@@ -121,7 +119,7 @@ export const PricingAbstractAngles = () => {
     ];
 
     return (
-        <section className="bg-primary">
+        <section id="pricing" className="bg-primary">
             <div className="bg-utility-brand-50_alt pt-16 md:pt-24">
                 <div className="mx-auto max-w-container px-4 md:px-8">
                     <motion.div 
@@ -153,31 +151,34 @@ export const PricingAbstractAngles = () => {
                             className="mt-4 text-lg text-brand-secondary md:mt-6 md:text-xl"
                             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                         >
-                            10x cheaper than enterprise tools. No consultants needed. All paid plans include 14-day free trial.
+                            10x cheaper than enterprise tools. No consultants needed. Start with a free compliance assessment.
                         </motion.p>
                         <motion.div 
                             className="mt-8 flex md:mt-12"
                             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                         >
-                            <div className="relative z-10 inline-flex gap-3">
-                                <Toggle
-                                    id="annual-pricing"
-                                    size="md"
-                                    isSelected={selectedPlan === "annually"}
-                                    onChange={(value) => setSelectedPlan(value ? "annually" : "monthly")}
-                                />
-
-                                <label htmlFor="annual-pricing" className="text-md font-medium text-brand-primary select-none">
+                            <div className="relative z-10 inline-flex items-center gap-3">
+                                <button
+                                    type="button"
+                                    role="switch"
+                                    aria-checked={selectedPlan === "annually"}
+                                    onClick={() => setSelectedPlan(selectedPlan === "annually" ? "monthly" : "annually")}
+                                    className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 ${selectedPlan === "annually" ? "bg-brand-600" : "bg-gray-400 dark:bg-gray-600"}`}
+                                >
+                                    <span
+                                        className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${selectedPlan === "annually" ? "translate-x-5" : "translate-x-0"}`}
+                                    />
+                                </button>
+                                <span className="text-md font-medium text-brand-primary select-none">
                                     Annual pricing <span className="text-brand-secondary">(save 20%)</span>
-                                </label>
+                                </span>
                             </div>
                         </motion.div>
                     </motion.div>
                 </div>
             </div>
 
-            <div className="relative py-16 md:py-24">
-                <BackgroundStripes />
+            <div className="relative py-16 md:py-24 bg-utility-brand-50_alt">
                 <div className="relative mx-auto max-w-container px-4 md:px-8">
                     {/* Main pricing tiers */}
                     <motion.div 
@@ -249,7 +250,7 @@ export const PricingAbstractAngles = () => {
 
                     {/* Trust note */}
                     <p className="mt-8 text-center text-sm text-tertiary">
-                        All paid plans include 14-day free trial. No credit card required.
+                        Take our free assessment to see if you comply. No credit card required.
                     </p>
                 </div>
             </div>

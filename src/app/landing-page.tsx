@@ -84,26 +84,36 @@ const HeroSection = () => {
             <section className="relative pt-16 md:pt-24">
                 <div className="mx-auto w-full max-w-container px-4 md:px-8">
                     <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
-                        {/* Animated Badge */}
-                        <motion.a 
-                            href="#" 
-                            className="rounded-[10px] outline-focus-ring focus-visible:outline-2 focus-visible:outline-offset-2"
+                        {/* Animated Badge with Beam Effect */}
+                        <motion.div 
+                            className="relative rounded-full p-[1px] overflow-hidden"
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
                         >
+                            {/* Rotating beam border */}
                             <motion.div
-                                animate={{ scale: [1, 1.02, 1] }}
-                                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                            >
-                                <BadgeGroup className="hidden md:flex" size="lg" addonText="Enforcement Active" iconTrailing={ArrowRight} theme="modern" color="brand">
-                                    €35M fines are now in effect
-                                </BadgeGroup>
-                                <BadgeGroup className="md:hidden" size="md" addonText="Enforcement Active" iconTrailing={ArrowRight} theme="modern" color="brand">
-                                    €35M fines are now in effect
-                                </BadgeGroup>
-                            </motion.div>
-                        </motion.a>
+                                className="absolute inset-0 rounded-full"
+                                style={{
+                                    background: "conic-gradient(from 0deg, transparent, transparent 270deg, #7c3aed 270deg, #7c3aed 360deg)",
+                                }}
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                            />
+                            <div className="relative rounded-full bg-primary">
+                                <motion.div
+                                    animate={{ scale: [1, 1.02, 1] }}
+                                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                                >
+                                    <BadgeGroup className="hidden md:flex" size="lg" addonText="Enforcement Active" theme="modern" color="brand">
+                                        €35M fines are now in effect
+                                    </BadgeGroup>
+                                    <BadgeGroup className="md:hidden" size="md" addonText="Enforcement Active" theme="modern" color="brand">
+                                        €35M fines are now in effect
+                                    </BadgeGroup>
+                                </motion.div>
+                            </div>
+                        </motion.div>
 
                         {/* Animated Headline */}
                         <motion.h1 
@@ -201,7 +211,7 @@ const HeroSection = () => {
 
                 {/* Animated Dashboard Mockup */}
                 <motion.div 
-                    className="mx-auto mt-16 h-90 w-full max-w-container overflow-hidden px-4 md:h-124 md:px-8"
+                    className="mx-auto mt-16 h-90 w-full max-w-container overflow-hidden px-4 pt-3 md:h-124 md:px-8 md:pt-4"
                     initial={{ opacity: 0, y: 60, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
@@ -214,30 +224,30 @@ const HeroSection = () => {
                         <div className="size-full rounded-[23.89px] bg-primary p-[3px] shadow-lg ring-[1.5px] ring-utility-gray-300 ring-inset md:rounded-[32px] md:p-1 md:ring-[2px]">
                             <div className="size-full rounded-[20.91px] bg-primary p-1 shadow-modern-mockup-inner-sm md:rounded-[28px] md:p-[5.4px] md:shadow-modern-mockup-inner-lg">
                                 <div className="relative size-full overflow-hidden rounded-[17.92px] bg-utility-gray-50 ring-[1.5px] ring-utility-gray-200 md:rounded-[24px] md:ring-[2px]">
-                                    {/* Light mode image (hidden in dark mode) */}
+                                    {/* Desktop: Light mode image */}
                                     <img
-                                        alt="Dashboard mockup showing application interface"
-                                        src="https://www.untitledui.com/marketing/screen-mockups/dashboard-desktop-mockup-light-01.webp"
+                                        alt="Protectron.ai Dashboard"
+                                        src="/images/hero-light.png"
                                         className="hidden size-full object-cover md:block dark:hidden"
                                     />
-                                    {/* Dark mode image (hidden in light mode) */}
+                                    {/* Desktop: Dark mode image */}
                                     <img
-                                        alt="Dashboard mockup showing application interface"
-                                        src="https://www.untitledui.com/marketing/screen-mockups/dashboard-desktop-mockup-dark-01.webp"
+                                        alt="Protectron.ai Dashboard"
+                                        src="/images/hero-dark.png"
                                         className="hidden size-full object-cover not-dark:hidden md:block"
                                     />
 
-                                    {/* Light mode image (hidden in dark mode) */}
+                                    {/* Mobile: Light mode image (same image, optimized display) */}
                                     <img
-                                        alt="Iphone Screen Mockup"
-                                        src="https://www.untitledui.com/marketing/screen-mockups/dashboard-mobile-mockup-light-01.webp"
-                                        className="size-full object-cover md:hidden dark:hidden"
+                                        alt="Protectron.ai Dashboard"
+                                        src="/images/hero-light.png"
+                                        className="size-full object-cover object-top md:hidden dark:hidden"
                                     />
-                                    {/* Dark mode image (hidden in light mode) */}
+                                    {/* Mobile: Dark mode image (same image, optimized display) */}
                                     <img
-                                        alt="Iphone Screen Mockup"
-                                        src="https://www.untitledui.com/marketing/screen-mockups/dashboard-mobile-mockup-dark-01.webp"
-                                        className="size-full object-cover not-dark:hidden md:hidden"
+                                        alt="Protectron.ai Dashboard"
+                                        src="/images/hero-dark.png"
+                                        className="size-full object-cover object-top not-dark:hidden md:hidden"
                                     />
                                 </div>
                             </div>
@@ -250,14 +260,7 @@ const HeroSection = () => {
 };
 
 const TrustedBySection = () => {
-    const companies = [
-        { name: "OpenAI", logo: "https://cdn.simpleicons.org/openai/000000" },
-        { name: "Anthropic", logo: "https://cdn.simpleicons.org/anthropic/000000" },
-        { name: "Meta", logo: "https://cdn.simpleicons.org/meta/0081FB" },
-        { name: "Google", logo: "https://cdn.simpleicons.org/google/4285F4" },
-        { name: "AWS", logo: "https://cdn.simpleicons.org/amazonaws/FF9900" },
-        { name: "Hugging Face", logo: "https://cdn.simpleicons.org/huggingface/FFD21E" },
-    ];
+    const companies = ["OpenAI", "Anthropic", "Meta", "Google", "Vercel", "Netlify", "Cloudflare"];
     
     return (
         <section className="bg-primary py-16 md:py-24">
@@ -284,24 +287,19 @@ const TrustedBySection = () => {
                     >
                         Trusted by AI teams at innovative companies
                     </motion.p>
-                    <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 xl:gap-x-14">
+                    <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 md:gap-x-12 xl:gap-x-16">
                         {companies.map((company, index) => (
-                            <motion.div 
-                                key={company.name}
-                                className="flex items-center gap-3 opacity-60 hover:opacity-100 transition-all duration-300"
+                            <motion.span 
+                                key={company}
+                                className="text-lg font-bold text-primary md:text-xl lg:text-2xl opacity-70 hover:opacity-100 transition-all duration-300"
                                 variants={{ 
                                     hidden: { opacity: 0, y: 20 }, 
-                                    visible: { opacity: 0.6, y: 0, transition: { delay: index * 0.05 } } 
+                                    visible: { opacity: 0.7, y: 0, transition: { delay: index * 0.05 } } 
                                 }}
                                 whileHover={{ scale: 1.05 }}
                             >
-                                <img 
-                                    src={company.logo} 
-                                    alt={company.name} 
-                                    className="h-6 w-6 md:h-7 md:w-7 dark:invert"
-                                />
-                                <span className="text-md font-semibold text-primary md:text-lg">{company.name}</span>
-                            </motion.div>
+                                {company}
+                            </motion.span>
                         ))}
                     </div>
                 </motion.div>
@@ -563,12 +561,12 @@ const SolutionSection = () => {
                         variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } } }}
                     >
                         <img 
-                            src="https://www.untitledui.com/marketing/screen-mockups/dashboard-mobile-mockup-light-01.webp"
+                            src="/images/phone-light.svg"
                             alt="Protectron.ai Dashboard"
                             className="absolute top-0 z-10 w-71 drop-shadow-2xl md:top-[auto] md:w-78.5 dark:hidden"
                         />
                         <img 
-                            src="https://www.untitledui.com/marketing/screen-mockups/dashboard-mobile-mockup-dark-01.webp"
+                            src="/images/phone-dark.svg"
                             alt="Protectron.ai Dashboard"
                             className="absolute top-0 z-10 w-71 drop-shadow-2xl md:top-[auto] md:w-78.5 hidden dark:block"
                         />
@@ -688,12 +686,12 @@ const HowItWorksSection = () => {
                         <div className="-mx-4 flex items-center justify-center lg:absolute lg:mr-9.5 lg:-ml-0 lg:h-140 lg:w-[50vw] lg:justify-start">
                             <img
                                 alt="Protectron.ai Dashboard"
-                                src="https://www.untitledui.com/marketing/screen-mockups/mackbook-pro-screen-mockup-light.webp"
+                                src="/images/howitworks-light.png"
                                 className="h-full object-contain lg:max-w-none dark:hidden"
                             />
                             <img
                                 alt="Protectron.ai Dashboard"
-                                src="https://www.untitledui.com/marketing/screen-mockups/mackbook-pro-screen-mockup-dark.webp"
+                                src="/images/howitworks-dark.png"
                                 className="h-full object-contain not-dark:hidden lg:max-w-none"
                             />
                         </div>
@@ -1199,15 +1197,126 @@ const faqsExtended = [
         answer: "Yes. We're SOC 2 compliant and use enterprise-grade encryption. Your compliance data never leaves EU servers, ensuring full GDPR compliance for your sensitive information.",
         icon: Heart,
     },
+    {
+        question: "Why is Protectron.ai cheaper than enterprise platforms like Credo AI?",
+        answer: "Enterprise platforms like Credo AI charge $50,000-$200,000+ per year because they're built for Fortune 500 companies with massive compliance teams. We've automated the heavy lifting so startups and SMBs can achieve the same compliance at a fraction of the cost — starting at just €99/month.",
+        icon: SwitchHorizontal01,
+    },
+    {
+        question: "What's the difference between EU AI Act and GDPR?",
+        answer: "GDPR focuses on personal data protection, while the EU AI Act specifically regulates AI systems based on their risk level. If you use AI that processes data, you likely need to comply with both. Our platform focuses specifically on EU AI Act requirements.",
+        icon: File05,
+    },
+    {
+        question: "How do I know what risk category my AI system falls into?",
+        answer: "Our free risk assessment quiz walks you through a simple questionnaire about your AI system's purpose, data usage, and deployment context. In about 10 minutes, you'll know exactly which risk category applies and what requirements you need to meet.",
+        icon: SlashCircle01,
+    },
+    {
+        question: "Can I try before I buy?",
+        answer: "Yes! Start with our free compliance assessment to see where you stand. It includes a risk assessment quiz, basic compliance roadmap, and email course on EU AI Act fundamentals — no credit card required.",
+        icon: CreditCardRefresh,
+    },
+    {
+        question: "What happens if I'm already working with consultants?",
+        answer: "Protectron.ai complements consultant work perfectly. Many of our customers use our platform to handle the documentation and tracking while consultants focus on strategic guidance. This typically reduces consultant hours (and costs) by 50-70%.",
+        icon: Mail01,
+    },
+    {
+        question: "Do you support multiple AI systems?",
+        answer: "Yes. Our Starter plan covers 1-3 AI systems, Growth covers 4-10, Scale covers 11-50, and Enterprise offers unlimited systems. Each system gets its own risk classification, documentation, and compliance tracking.",
+        icon: Heart,
+    },
 ];
 
-const FAQSection = () => {
-    const [openQuestions, setOpenQuestions] = useState(new Set([0]));
+const FAQItem = ({ faq, isOpen, onToggle }: { faq: typeof faqsExtended[0]; isOpen: boolean; onToggle: () => void }) => (
+    <div className="border-b border-secondary pb-6">
+        <h3>
+            <motion.button
+                onClick={onToggle}
+                className="flex w-full cursor-pointer items-start justify-between gap-2 rounded-md text-left outline-focus-ring select-none focus-visible:outline-2 focus-visible:outline-offset-2 md:gap-6 group"
+                whileHover={{ x: 4 }}
+                transition={{ duration: 0.2 }}
+            >
+                <span className="text-md font-semibold text-primary group-hover:text-brand-600 transition-colors duration-200">{faq.question}</span>
+
+                <span 
+                    aria-hidden="true" 
+                    className="flex size-6 shrink-0 items-center text-fg-quaternary"
+                >
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    >
+                        <circle cx="12" cy="12" r="10"></circle>
+                        {!isOpen && <line x1="12" y1="8" x2="12" y2="16"></line>}
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                </span>
+            </motion.button>
+        </h3>
+
+        <motion.div
+            className="overflow-hidden"
+            initial={false}
+            animate={{ 
+                height: isOpen ? "auto" : 0, 
+                opacity: isOpen ? 1 : 0 
+            }}
+            transition={{ 
+                height: { type: "spring", damping: 30, stiffness: 300 },
+                opacity: { duration: 0.2 }
+            }}
+        >
+            <motion.div 
+                className="pt-2 pr-8 md:pr-12"
+                initial={{ y: -10 }}
+                animate={{ y: isOpen ? 0 : -10 }}
+                transition={{ duration: 0.2 }}
+            >
+                <p className="text-md text-tertiary">{faq.answer}</p>
+            </motion.div>
+        </motion.div>
+    </div>
+);
+
+const FAQColumn = ({ faqs }: { faqs: typeof faqsExtended }) => {
+    const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     const handleToggle = (index: number) => {
-        openQuestions.has(index) ? openQuestions.delete(index) : openQuestions.add(index);
-        setOpenQuestions(new Set(openQuestions));
+        setOpenIndex(openIndex === index ? null : index);
     };
+
+    return (
+        <div className="flex flex-col gap-6">
+            {faqs.map((faq, index) => (
+                <motion.div 
+                    key={faq.question}
+                    variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+                    }}
+                >
+                    <FAQItem 
+                        faq={faq} 
+                        isOpen={openIndex === index} 
+                        onToggle={() => handleToggle(index)} 
+                    />
+                </motion.div>
+            ))}
+        </div>
+    );
+};
+
+const FAQSection = () => {
+    const leftColumnFaqs = faqsExtended.filter((_, index) => index % 2 === 0);
+    const rightColumnFaqs = faqsExtended.filter((_, index) => index % 2 === 1);
 
     return (
         <section className="bg-primary py-16 md:py-24">
@@ -1242,90 +1351,18 @@ const FAQSection = () => {
                 </motion.div>
 
                 <motion.div 
-                    className="mx-auto mt-12 max-w-3xl md:mt-16"
+                    className="mx-auto mt-12 max-w-6xl md:mt-16"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-50px" }}
                     variants={{
                         hidden: { opacity: 0 },
-                        visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
+                        visible: { opacity: 1, transition: { staggerChildren: 0.05, delayChildren: 0.2 } }
                     }}
                 >
-                    <div className="flex flex-col gap-8">
-                        {faqsExtended.map((faq, index) => (
-                            <motion.div 
-                                key={faq.question} 
-                                className="not-first:-mt-px not-first:border-t not-first:border-secondary not-first:pt-6"
-                                variants={{
-                                    hidden: { opacity: 0, x: -20 },
-                                    visible: { opacity: 1, x: 0, transition: { duration: 0.4 } }
-                                }}
-                            >
-                                <h3>
-                                    <motion.button
-                                        onClick={() => handleToggle(index)}
-                                        className="flex w-full cursor-pointer items-start justify-between gap-2 rounded-md text-left outline-focus-ring select-none focus-visible:outline-2 focus-visible:outline-offset-2 md:gap-6 group"
-                                        whileHover={{ x: 4 }}
-                                        transition={{ duration: 0.2 }}
-                                    >
-                                        <span className="text-md font-semibold text-primary group-hover:text-brand-600 transition-colors duration-200">{faq.question}</span>
-
-                                        <motion.span 
-                                            aria-hidden="true" 
-                                            className="flex size-6 items-center text-fg-quaternary"
-                                            animate={{ rotate: openQuestions.has(index) ? 45 : 0 }}
-                                            transition={{ duration: 0.2 }}
-                                        >
-                                            <svg
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                strokeWidth="2"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                            >
-                                                <circle cx="12" cy="12" r="10"></circle>
-                                                <line
-                                                    className={cx(
-                                                        "origin-center rotate-0 transition duration-200 ease-out",
-                                                        openQuestions.has(index) && "-rotate-90",
-                                                    )}
-                                                    x1="12"
-                                                    y1="8"
-                                                    x2="12"
-                                                    y2="16"
-                                                ></line>
-                                                <line x1="8" y1="12" x2="16" y2="12"></line>
-                                            </svg>
-                                        </motion.span>
-                                    </motion.button>
-                                </h3>
-
-                                <motion.div
-                                    className="overflow-hidden"
-                                    initial={false}
-                                    animate={{ 
-                                        height: openQuestions.has(index) ? "auto" : 0, 
-                                        opacity: openQuestions.has(index) ? 1 : 0 
-                                    }}
-                                    transition={{ 
-                                        height: { type: "spring", damping: 30, stiffness: 300 },
-                                        opacity: { duration: 0.2 }
-                                    }}
-                                >
-                                    <motion.div 
-                                        className="pt-2 pr-8 md:pr-12"
-                                        initial={{ y: -10 }}
-                                        animate={{ y: openQuestions.has(index) ? 0 : -10 }}
-                                        transition={{ duration: 0.2 }}
-                                    >
-                                        <p className="text-md text-tertiary">{faq.answer}</p>
-                                    </motion.div>
-                                </motion.div>
-                            </motion.div>
-                        ))}
+                    <div className="grid grid-cols-1 gap-x-12 md:grid-cols-2 md:items-start">
+                        <FAQColumn faqs={leftColumnFaqs} />
+                        <FAQColumn faqs={rightColumnFaqs} />
                     </div>
                 </motion.div>
 
@@ -1508,7 +1545,7 @@ const ReviewsSection = () => {
     const maxVisibleReviewsOnMobile = 4;
 
     return (
-        <div className="flex flex-col items-center gap-16 bg-primary pb-16 lg:pb-24">
+        <div className="flex flex-col items-center gap-16 bg-primary pt-16 pb-16 lg:pt-24 lg:pb-24">
             <motion.div 
                 className="flex max-w-container flex-col items-center gap-4 px-4 text-center lg:gap-5 lg:px-8"
                 initial="hidden"
@@ -1519,8 +1556,13 @@ const ReviewsSection = () => {
                     visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
                 }}
             >
+                <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                    <span className="inline-flex items-center rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-sm font-semibold text-violet-700 dark:border-violet-800 dark:bg-violet-900/30 dark:text-violet-400">
+                        Testimonials
+                    </span>
+                </motion.div>
                 <motion.h1 
-                    className="text-display-sm font-semibold text-primary lg:text-display-md"
+                    className="mt-2 text-display-sm font-semibold text-primary lg:text-display-md"
                     variants={{ hidden: { opacity: 0, y: 20, filter: "blur(8px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)" } }}
                 >
                     Trusted by AI Teams Across Europe
@@ -1578,8 +1620,7 @@ const ReviewsSection = () => {
                                         whileTap={{ scale: 0.98 }}
                                     >
                                         <div className="flex flex-col items-start gap-3">
-                                            <img className="h-8 dark:hidden" src={review.company.imageUrl} alt={review.company.name} />
-                                            <img className="h-8 opacity-85 not-dark:hidden" src={review.company.imageUrlDark} alt={review.company.name} />
+                                            <span className="text-lg font-bold text-primary">{review.company.name}</span>
                                             <blockquote className="text-md text-tertiary">{review.quote}</blockquote>
                                         </div>
                                         <AvatarLabelGroup

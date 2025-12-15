@@ -5,8 +5,6 @@ import { useRef, useState } from "react";
 import { ChevronDown } from "@untitledui/icons";
 import { Button as AriaButton, Dialog as AriaDialog, DialogTrigger as AriaDialogTrigger, Popover as AriaPopover } from "react-aria-components";
 import { Button } from "@/components/base/buttons/button";
-import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
-import { UntitledLogoMinimal } from "@/components/foundations/logo/untitledui-logo-minimal";
 import { cx } from "@/utils/cx";
 import { DropdownMenuFeatureCard } from "./dropdown-menu-feature-card";
 import { DropdownMenuSimpleWithFooter } from "./dropdown-menu-simple-with-footer";
@@ -81,8 +79,8 @@ const MobileFooter = () => {
                 </ul>
             </div>
             <div className="flex flex-col gap-3">
-                <Button size="lg">Get started</Button>
-                <Button color="secondary" size="lg">
+                <Button size="lg" href="https://protectron.ai/assessment">Get started</Button>
+                <Button color="secondary" size="lg" href="https://protectron.ai/auth">
                     Log in
                 </Button>
             </div>
@@ -118,8 +116,10 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                     )}
                 >
                     <div className="flex flex-1 items-center gap-5">
-                        <UntitledLogo className="h-8 md:max-lg:hidden" />
-                        <UntitledLogoMinimal className="hidden h-8 md:inline-block lg:hidden" />
+                        <a href="/" className="flex items-center">
+                            <img src="/images/logo-light.png" alt="Protectron.ai" className="h-14 dark:hidden" />
+                            <img src="/images/logo-dark.png" alt="Protectron.ai" className="hidden h-14 dark:block" />
+                        </a>
 
                         {/* Desktop navigation */}
                         <nav className="max-md:hidden">
@@ -178,10 +178,10 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                     </div>
 
                     <div className="hidden items-center gap-3 md:flex">
-                        <Button color="secondary" size={isFloating ? "md" : "lg"}>
+                        <Button color="secondary" size={isFloating ? "md" : "lg"} href="https://protectron.ai/auth">
                             Log in
                         </Button>
-                        <Button color="primary" size={isFloating ? "md" : "lg"}>
+                        <Button color="primary" size={isFloating ? "md" : "lg"} href="https://protectron.ai/assessment">
                             Get started
                         </Button>
                     </div>
