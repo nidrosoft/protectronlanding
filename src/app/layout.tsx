@@ -12,41 +12,79 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: "Protectron.ai — EU AI Act Compliance in Weeks, Not Months",
-    description: "Automated EU AI Act compliance for AI companies. Risk classification, documentation generation, and compliance tracking. 10-50x cheaper than consultants. Start free.",
-    keywords: ["EU AI Act", "AI compliance", "AI regulation", "compliance automation", "risk assessment", "AI documentation", "GDPR", "AI governance"],
-    authors: [{ name: "Protectron.ai" }],
+    metadataBase: new URL("https://protectron.ai"),
+    title: {
+        default: "Protectron.ai — EU AI Act Compliance in Weeks, Not Months",
+        template: "%s | Protectron.ai",
+    },
+    description: "Automated EU AI Act compliance for AI companies. Risk classification, documentation generation, and compliance tracking. 10x cheaper than consultants. Start your free assessment today.",
+    keywords: [
+        "EU AI Act",
+        "AI compliance",
+        "AI regulation",
+        "compliance automation",
+        "risk assessment",
+        "AI documentation",
+        "GDPR",
+        "AI governance",
+        "AI Act compliance software",
+        "EU AI regulation",
+        "AI risk classification",
+        "compliance platform",
+    ],
+    authors: [{ name: "Protectron.ai", url: "https://protectron.ai" }],
     creator: "Protectron.ai",
     publisher: "Protectron.ai",
-    robots: "index, follow",
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
+    },
+    icons: {
+        icon: [
+            { url: "/favicon.ico", sizes: "any" },
+            { url: "/icon.svg", type: "image/svg+xml" },
+        ],
+        apple: [
+            { url: "/apple-touch-icon.png", sizes: "180x180" },
+        ],
+    },
+    manifest: "/site.webmanifest",
     openGraph: {
         type: "website",
-        locale: "en_EU",
+        locale: "en_US",
         url: "https://protectron.ai",
         siteName: "Protectron.ai",
         title: "Protectron.ai — EU AI Act Compliance in Weeks, Not Months",
         description: "Automated EU AI Act compliance for AI companies. Risk classification, documentation generation, and compliance tracking. Start your free risk assessment today.",
-        images: [
-            {
-                url: "/og-image.png",
-                width: 1200,
-                height: 630,
-                alt: "Protectron.ai - EU AI Act Compliance Platform",
-            },
-        ],
     },
     twitter: {
         card: "summary_large_image",
         title: "Protectron.ai — EU AI Act Compliance in Weeks",
-        description: "Automated EU AI Act compliance. 10-50x cheaper than consultants. Start free.",
-        images: ["/og-image.png"],
+        description: "Automated EU AI Act compliance. 10x cheaper than consultants. Start your free assessment.",
+        site: "@protectronai",
         creator: "@protectronai",
     },
+    alternates: {
+        canonical: "https://protectron.ai",
+    },
+    category: "technology",
 };
 
 export const viewport: Viewport = {
-    themeColor: "#7f56d9",
+    themeColor: [
+        { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+        { media: "(prefers-color-scheme: dark)", color: "#1a1a2e" },
+    ],
     colorScheme: "light dark",
+    width: "device-width",
+    initialScale: 1,
 };
 
 export default function RootLayout({
