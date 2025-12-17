@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, Calendar, Clock, AlertTriangle, CheckCircle, Shield, Users, Building, Scale, FileText, Target, TrendingUp } from "lucide-react";
 import { Header } from "@/components/marketing/header-navigation/header";
+import { Footer } from "@/components/shared/footer";
 import { Button } from "@/components/base/buttons/button";
 
 const TableOfContents = () => {
@@ -370,7 +371,7 @@ export default function EUAIActGuidePage() {
                             {/* GPAI Requirements */}
                             <SectionHeading id="gpai">General-Purpose AI (GPAI) Requirements</SectionHeading>
                             <Paragraph>
-                                If you use or provide foundation models like GPT-4, Claude, Gemini, Llama, or similar large language models, additional rules apply.
+                                If you use or provide foundation models like GPT-5.2, Claude 4.5, Gemini 3.0, Llama 4, or similar large language models, additional rules apply.
                             </Paragraph>
 
                             <SubHeading>For All GPAI Models:</SubHeading>
@@ -609,34 +610,7 @@ export default function EUAIActGuidePage() {
                 </div>
             </section>
 
-            {/* Footer */}
-            <footer className="bg-primary py-12 border-t border-secondary">
-                <div className="mx-auto max-w-container px-4 md:px-8">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <div className="flex flex-col gap-1">
-                            <span className="text-lg font-bold text-primary">Protectron.ai</span>
-                            <p className="text-sm text-tertiary">EU AI Act Compliance Platform</p>
-                        </div>
-                        <p className="text-sm text-tertiary flex items-center gap-1">
-                            Built with <span className="text-red-500">❤️</span> by{" "}
-                            <a 
-                                href="https://nidrosoft.com" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="font-medium text-primary hover:text-brand-600 transition-colors"
-                            >
-                                Nidrosoft
-                            </a>
-                        </p>
-                        <div className="flex flex-col items-center md:items-end gap-1">
-                            <p className="text-sm text-quaternary">© {new Date().getFullYear()} Protectron.ai</p>
-                            <p className="text-sm text-tertiary flex items-center gap-1">
-                                <span>🇪🇺</span> Data hosted in EU
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 }

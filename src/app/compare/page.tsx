@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Header } from "@/components/marketing/header-navigation/header";
+import { Footer } from "@/components/shared/footer";
 import { 
     TickCircle, 
     CloseCircle, 
@@ -1038,19 +1040,23 @@ const DisclaimerSection = () => (
 
 export default function ComparePage() {
     return (
-        <main className="min-h-screen">
-            <HeroSection />
-            <ComparisonTableSection />
-            <CompetitorsSection />
-            <WhyProtectronSection />
-            <PricingComparisonSection />
-            <SpeedSection />
-            <WhoShouldUseSection />
-            <CostOfWaitingSection />
-            <TestimonialsSection />
-            <GetStartedSection />
-            <FooterBanner />
-            <DisclaimerSection />
-        </main>
+        <div className="min-h-screen">
+            <Header />
+            <main>
+                <HeroSection />
+                <ComparisonTableSection />
+                <CompetitorsSection />
+                <WhyProtectronSection />
+                <PricingComparisonSection />
+                <SpeedSection />
+                <WhoShouldUseSection />
+                <CostOfWaitingSection />
+                <TestimonialsSection />
+                <GetStartedSection />
+                <FooterBanner />
+                <DisclaimerSection />
+            </main>
+            <Footer />
+        </div>
     );
 }

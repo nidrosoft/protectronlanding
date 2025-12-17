@@ -7,6 +7,8 @@ import { Button as AriaButton, Dialog as AriaDialog, DialogTrigger as AriaDialog
 import { Button } from "@/components/base/buttons/button";
 import { cx } from "@/utils/cx";
 import { DropdownMenuFeatureCard } from "./dropdown-menu-feature-card";
+import { DropdownMenuFeatures } from "./dropdown-menu-features";
+import { DropdownMenuDocs } from "./dropdown-menu-docs";
 import { DropdownMenuSimpleWithFooter } from "./dropdown-menu-simple-with-footer";
 import { DropdownMenuWithTwoColsAndLinksAndFooter } from "./dropdown-menu-with-two-cols-and-links-and-footer";
 
@@ -17,8 +19,9 @@ type HeaderNavItem = {
 };
 
 const headerNavItems: HeaderNavItem[] = [
-    { label: "Features", href: "#features" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "Features", menu: <DropdownMenuFeatures /> },
+    { label: "Docs", menu: <DropdownMenuDocs /> },
+    { label: "Pricing", href: "/#pricing" },
     { label: "Compare", href: "/compare" },
     { label: "EU AI Act Guide", href: "/guide" },
 ];
@@ -79,7 +82,7 @@ const MobileFooter = () => {
                 </ul>
             </div>
             <div className="flex flex-col gap-3">
-                <Button size="lg" href="https://protectron.ai/assessment">Get started</Button>
+                <Button size="lg" href="https://protectron.ai/assessment" className="bg-gray-900 hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100">Get started</Button>
                 <Button color="secondary" size="lg" href="https://protectron.ai/auth">
                     Log in
                 </Button>
@@ -181,7 +184,7 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                         <Button color="secondary" size={isFloating ? "md" : "lg"} href="https://protectron.ai/auth">
                             Log in
                         </Button>
-                        <Button color="primary" size={isFloating ? "md" : "lg"} href="https://protectron.ai/assessment">
+                        <Button color="primary" size={isFloating ? "md" : "lg"} href="https://protectron.ai/assessment" className="bg-gray-900 hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100">
                             Get started
                         </Button>
                     </div>
