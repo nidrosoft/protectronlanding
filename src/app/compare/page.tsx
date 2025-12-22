@@ -75,7 +75,7 @@ const HeroSection = () => (
                     variants={fadeInUp}
                 >
                     <Link 
-                        href="#" 
+                        href="https://app.protectron.ai" 
                         className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-md font-semibold text-white shadow-lg transition-all hover:bg-brand-700 hover:shadow-xl"
                     >
                         Get Started for Free
@@ -997,7 +997,7 @@ const GetStartedSection = () => {
                     variants={fadeInUp}
                 >
                     <Link 
-                        href="#" 
+                        href="https://app.protectron.ai" 
                         className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-8 py-4 text-md font-semibold text-white shadow-lg transition-all hover:bg-brand-700 hover:shadow-xl"
                     >
                         Get Started for Free

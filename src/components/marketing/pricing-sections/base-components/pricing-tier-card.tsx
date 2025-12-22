@@ -121,7 +121,7 @@ export const PricingTierCardIcon = (props: PricingTierCardProps) => {
                 "mt-auto flex flex-col gap-3 rounded-b-2xl border-t px-6 pt-6 pb-8 md:p-8",
                 isPopular ? "border-brand-500 bg-brand-700" : "border-secondary bg-secondary"
             )}>
-                <Button size="xl" href="https://protectron.ai/assessment" color={isPopular ? "secondary" : "primary"}>
+                <Button size="xl" href="https://app.protectron.ai" color={isPopular ? "secondary" : "primary"}>
                     {props.buttonText || "Get started"}
                 </Button>
             </div>
@@ -168,7 +168,7 @@ export const PricingTierCardCallout = (props: {
             </ul>
 
             <div className="mt-auto flex flex-col gap-3 px-6 pb-8 md:px-8">
-                <Button size="xl" href="https://protectron.ai/assessment">Get started</Button>
+                <Button size="xl" href="https://app.protectron.ai">Get started</Button>
                 {props.secondAction && (
                     <Button color="secondary" size="xl">
                         {props.secondAction}
@@ -199,7 +199,7 @@ export const PricingTierCardIconOffset = (props: PricingTierCardProps) => {
             </ul>
 
             <div className="mt-auto flex flex-col gap-3 px-6 pb-8 md:px-8">
-                <Button size="xl" href="https://protectron.ai/assessment">Get started</Button>
+                <Button size="xl" href="https://app.protectron.ai">Get started</Button>
             </div>
         </div>
     );
@@ -249,7 +249,7 @@ export const PricingTierCardDualCheckItems = (props: {
             </div>
 
             <div className="mt-auto flex flex-col gap-3 border-t border-secondary px-6 pt-6 pb-8 md:p-8">
-                <Button size="xl" href="https://protectron.ai/assessment">Get started</Button>
+                <Button size="xl" href="https://app.protectron.ai">Get started</Button>
             </div>
         </div>
     );
@@ -266,7 +266,7 @@ export const PricingTierCardBadge = (props: { title: string; subtitle: string; d
                 <p className="mt-2 text-md text-tertiary">{props.description}</p>
 
                 <div className="mt-6 flex flex-col gap-3 self-stretch md:mt-4">
-                    <Button size="xl" href="https://protectron.ai/assessment">Get started</Button>
+                    <Button size="xl" href="https://app.protectron.ai">Get started</Button>
                     <Button color="secondary" size="xl">
                         Chat to sales
                     </Button>
@@ -312,7 +312,7 @@ export const PricingTierCardBadgeGroup = (props: {
             <div className="mx-6 border-t border-secondary md:mx-8"></div>
 
             <div className="mt-auto flex flex-col gap-3 p-6 pb-8 md:p-8">
-                <Button size="xl" href="https://protectron.ai/assessment">Get started</Button>
+                <Button size="xl" href="https://app.protectron.ai">Get started</Button>
             </div>
         </div>
     );
@@ -347,7 +347,7 @@ export const PricingTierCardDualAction = (props: {
             <p className="mt-4 text-md text-tertiary">{props.description}</p>
 
             <div className="mt-8 flex flex-col gap-3 self-stretch">
-                <Button size="xl" href="https://protectron.ai/assessment">Get started</Button>
+                <Button size="xl" href="https://app.protectron.ai">Get started</Button>
                 <Button color="secondary" size="xl">
                     Chat to sales
                 </Button>
@@ -399,7 +399,7 @@ export const PricingTierCardBanner = (props: {
                 </ul>
 
                 <div className="mt-auto flex flex-col gap-3 px-6 pb-8 md:px-8">
-                    <Button size="xl" href="https://protectron.ai/assessment">Get started</Button>
+                    <Button size="xl" href="https://app.protectron.ai">Get started</Button>
                     {props.secondAction && (
                         <Button color="secondary" size="xl">
                             {props.secondAction}
@@ -426,7 +426,7 @@ export const PricingTierCardSimple = (props: PricingTierCardProps) => (
         </ul>
 
         <div className="flex flex-col gap-3 px-6 pb-8 md:px-8">
-            <Button size="xl" href="https://protectron.ai/assessment">Get started</Button>
+            <Button size="xl" href="https://app.protectron.ai">Get started</Button>
         </div>
     </div>
 );
@@ -454,7 +454,7 @@ export const PricingTierCardPrimaryCardIcon = (props: {
         </ul>
 
         <div className="mt-auto flex flex-col gap-3 px-6 pb-8 md:mt-2 md:px-8">
-            <Button size="xl" href="https://protectron.ai/assessment">Get started</Button>
+            <Button size="xl" href="https://app.protectron.ai">Get started</Button>
         </div>
     </div>
 );

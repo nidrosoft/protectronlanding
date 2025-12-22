@@ -189,7 +189,7 @@ const HeroSection = () => {
                                     animate={{ x: "200%" }}
                                     transition={{ duration: 2, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
                                 />
-                                <Button size="xl">
+                                <Button size="xl" href="https://app.protectron.ai">
                                     <span className="flex items-center gap-2">
                                         <ShieldTick size="20" color="currentColor" variant="Bold" />
                                         Free Risk Assessment
@@ -667,7 +667,7 @@ const SolutionSection = () => {
                     transition={{ duration: 0.5, delay: 0.3 }}
                 >
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                        <Button size="xl">
+                        <Button size="xl" href="https://app.protectron.ai">
                             <span className="flex items-center gap-2">
                                 <ShieldTick size="20" color="currentColor" variant="Bold" />
                                 Start Free Assessment
@@ -1542,6 +1542,7 @@ const PricingSection = () => {
             price: 99,
             annualPrice: 82,
             buttonText: "Start Free Assessment",
+            buttonHref: "https://app.protectron.ai",
             featuresTitle: "What's included:",
             features: [
                 { text: "3 AI systems" },
@@ -1559,6 +1560,7 @@ const PricingSection = () => {
             price: 299,
             annualPrice: 249,
             buttonText: "Start Free Assessment",
+            buttonHref: "https://app.protectron.ai",
             isPrimary: true,
             featuresTitle: "Everything in Starter, plus:",
             features: [
@@ -1576,6 +1578,7 @@ const PricingSection = () => {
             price: 599,
             annualPrice: 499,
             buttonText: "Start Free Assessment",
+            buttonHref: "https://app.protectron.ai",
             featuresTitle: "Everything in Growth, plus:",
             features: [
                 { text: "25 AI systems" },

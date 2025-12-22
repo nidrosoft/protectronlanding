@@ -20,6 +20,7 @@ export interface PricingTier {
   priceLabel?: string
   billingPeriod?: string
   buttonText: string
+  buttonHref?: string
   isPrimary?: boolean
   features: PricingFeature[]
   featuresTitle?: string
@@ -130,11 +131,12 @@ export function Pricing({
                 </div>
 
                 {/* CTA Button */}
-                <motion.button
+                <motion.a
+                  href={tier.buttonHref || "#"}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className={cn(
-                    "w-full py-3 px-4 rounded-lg font-semibold text-sm mb-6 transition-colors",
+                    "w-full py-3 px-4 rounded-lg font-semibold text-sm mb-6 transition-colors text-center block",
                     tier.isPrimary
                       ? "bg-brand-600 hover:bg-brand-700 text-white"
                       : tier.priceLabel 
@@ -143,7 +145,7 @@ export function Pricing({
                   )}
                 >
                   {tier.buttonText}
-                </motion.button>
+                </motion.a>
 
                 {/* Features Title */}
                 {tier.featuresTitle && (
