@@ -164,19 +164,20 @@ const HeroSection = () => {
 
                         {/* Animated Buttons */}
                         <motion.div 
-                            className="mt-8 flex w-full flex-col-reverse items-stretch gap-3 sm:w-auto sm:flex-row sm:items-start md:mt-12"
+                            className="mt-8 flex w-full flex-col-reverse items-center justify-center gap-3 sm:w-auto sm:flex-row md:mt-12"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.4, 0.25, 1] }}
                         >
-                            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                            {/* Hidden for now - may add later */}
+                            {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                                 <Button color="secondary" size="xl">
                                     <span className="flex items-center gap-2">
                                         <Play size="20" color="currentColor" variant="Bold" />
                                         See Agent Demo
                                     </span>
                                 </Button>
-                            </motion.div>
+                            </motion.div> */}
                             <motion.div 
                                 className="relative overflow-hidden rounded-lg"
                                 whileHover={{ scale: 1.05 }} 
@@ -675,7 +676,7 @@ const SolutionSection = () => {
                         </Button>
                     </motion.div>
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                        <Button color="secondary" size="xl">
+                        <Button color="secondary" size="xl" href="/features/sdk-integration">
                             <span className="flex items-center gap-2">
                                 Explore SDK
                                 <ArrowRight className="h-4 w-4" />
@@ -1405,7 +1406,7 @@ const BuiltForAgentsSection = () => {
                         {/* View SDK Button - right aligned */}
                         <div className="mt-8 flex justify-end">
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                                <Button size="lg">
+                                <Button size="lg" href="/features/sdk-integration">
                                     <span className="flex items-center gap-2">
                                         View SDK Docs
                                         <ArrowRight className="h-4 w-4" />
@@ -1953,7 +1954,7 @@ const FAQSection = () => {
                         <p className="mt-2 text-md text-tertiary md:text-lg">Can't find the answer you're looking for? Please chat to our friendly team.</p>
                     </div>
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                        <Button size="xl">Get in touch</Button>
+                        <Button size="xl" href="/contact">Get in touch</Button>
                     </motion.div>
                 </motion.div>
             </div>
@@ -2226,6 +2227,31 @@ const CountdownTimer = () => {
 };
 
 const BottomCTASection = () => {
+    const [email, setEmail] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!email || !email.includes('@')) return;
+
+        setIsSubmitting(true);
+        try {
+            const response = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email }),
+            });
+
+            if (response.ok) {
+                window.location.href = 'https://app.protectron.ai';
+            }
+        } catch (error) {
+            console.error('Submission error:', error);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <section 
             className="py-16 md:py-24 overflow-hidden" 
@@ -2263,15 +2289,19 @@ const BottomCTASection = () => {
                     <motion.form 
                         className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center md:mt-10"
                         variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                        onSubmit={handleSubmit}
                     >
                         <input
                             type="email"
                             placeholder="Enter your work email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
                             className="h-12 rounded-lg border border-white/20 bg-white/10 px-4 text-white placeholder:text-white/50 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/20 sm:w-80 transition-all duration-200 backdrop-blur-sm"
                         />
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-                            <Button size="xl" color="secondary" className="whitespace-nowrap">
-                                Start Free Assessment
+                            <Button size="xl" color="secondary" className="whitespace-nowrap" type="submit" disabled={isSubmitting}>
+                                {isSubmitting ? 'Submitting...' : 'Start Free Assessment'}
                             </Button>
                         </motion.div>
                     </motion.form>
@@ -2287,7 +2317,7 @@ const BottomCTASection = () => {
                         className="mt-6 flex items-center justify-center gap-4"
                         variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
                     >
-                        <a href="/demo" className="text-white/70 hover:text-white transition-colors text-sm font-medium">
+                        <a href="/contact" className="text-white/70 hover:text-white transition-colors text-sm font-medium">
                             Book a Demo →
                         </a>
                         <span className="text-white/30">|</span>

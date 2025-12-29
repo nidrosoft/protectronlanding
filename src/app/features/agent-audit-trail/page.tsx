@@ -29,7 +29,7 @@ const HeroSection = () => {
                         Automatic logging of every agent action, decision, and human override. Full EU AI Act Article 12 compliance—without changing how you build agents.
                     </p>
                     <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                        <Button size="xl" color="primary" href="/docs/sdk">
+                        <Button size="xl" color="primary" href="/features/sdk-integration">
                             Explore SDK Documentation
                         </Button>
                         <Button size="xl" color="secondary" href="#how-it-works">
