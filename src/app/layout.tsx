@@ -94,6 +94,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
+            <head>
+                <script
+                    type="text/javascript"
+                    src="https://embeds.iubenda.com/widgets/c2f30d44-92e7-433e-8185-71f5d0cbd681.js"
+                    async
+                />
+            </head>
             <body className={cx(inter.variable, "bg-primary antialiased")}>
                 <RouteProvider>
                     <Theme>{children}</Theme>

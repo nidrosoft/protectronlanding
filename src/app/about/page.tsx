@@ -304,7 +304,7 @@ const FounderSection = () => {
                                 I believe we're at an inflection point for AI. The decisions we make now—about safety, about regulation, about who gets access to these tools—will shape the next decade of technology. I want to be part of building that future responsibly.
                             </p>
                             <a 
-                                href="https://linkedin.com/in/cyric" 
+                                href="https://www.linkedin.com/in/cyriac-zeh/" 
                                 className="mt-4 inline-flex items-center gap-2 text-brand-600 hover:underline"
                             >
                                 <Linkedin className="h-4 w-4" />
