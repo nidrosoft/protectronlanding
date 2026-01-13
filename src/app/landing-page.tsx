@@ -1576,8 +1576,8 @@ const PricingSection = () => {
         {
             name: "Scale",
             description: "For scaling teams with many systems",
-            price: 599,
-            annualPrice: 499,
+            price: 999,
+            annualPrice: 829,
             buttonText: "Start Free Assessment",
             buttonHref: "https://app.protectron.ai",
             featuresTitle: "Everything in Growth, plus:",
