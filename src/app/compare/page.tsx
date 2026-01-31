@@ -388,16 +388,18 @@ const CompetitorsSection = () => {
 const WhyProtectronSection = () => {
     const features = [
         { feature: "EU AI Act-specific design", protectron: "Core focus", enterprise: "One of many", vanta: "Add-on", consultants: "Varies" },
+        { feature: "Agent Audit SDK", protectron: "Native (LangChain/CrewAI)", enterprise: "None", vanta: "None", consultants: "Manual logging" },
         { feature: "Risk classification engine", protectron: "Articles 5, 6, Annex III", enterprise: "Yes", vanta: "Yes", consultants: "Manual" },
         { feature: "Document generation", protectron: "AI-powered", enterprise: "Templates", vanta: "Templates", consultants: "You write" },
+        { feature: "PII Redaction", protectron: "Automatic in-SDK", enterprise: "Manual / Third-party", vanta: "N/A", consultants: "Human review only" },
         { feature: "Requirements tracking", protectron: "Article-by-article", enterprise: "Yes", vanta: "Yes", consultants: "Manual" },
         { feature: "Self-service signup", protectron: "Start now", enterprise: "Sales cycle", vanta: "Demo first", consultants: "Meetings" },
         { feature: "Transparent pricing", protectron: "On website", enterprise: "Hidden", vanta: "Ranges only", consultants: "Quote required" },
     ];
 
     const renderCell = (value: string, isProtectron: boolean = false) => {
-        const isPositive = value === "Core focus" || value === "AI-powered" || value === "Start now" || value === "On website" || value === "Articles 5, 6, Annex III" || value === "Article-by-article" || value === "Yes";
-        const isNegative = value === "Hidden" || value === "Sales cycle" || value === "You write" || value === "Manual" || value === "Meetings" || value === "Quote required";
+        const isPositive = value === "Core focus" || value === "AI-powered" || value === "Start now" || value === "On website" || value === "Articles 5, 6, Annex III" || value === "Article-by-article" || value === "Yes" || value === "Native (LangChain/CrewAI)" || value === "Automatic in-SDK";
+        const isNegative = value === "Hidden" || value === "Sales cycle" || value === "You write" || value === "Manual" || value === "Meetings" || value === "Quote required" || value === "None" || value === "Manual logging" || value === "Manual / Third-party" || value === "N/A" || value === "Human review only";
         
         if (isProtectron) {
             return <span className="font-medium text-success-600 dark:text-success-400">{value}</span>;
@@ -860,7 +862,7 @@ const CostOfWaitingSection = () => {
                     <div className="mt-8 rounded-xl bg-error-100 p-4 dark:bg-error-900/30">
                         <p className="text-sm font-medium text-error-700 dark:text-error-400">
                             <Clock size={16} className="mr-1 inline" />
-                            <strong>Timeline reality:</strong> Prohibited practices already in effect (Feb 2, 2025). High-risk AI systems deadline: <strong>Aug 2, 2026</strong> — ~8 months away.
+                            <strong>Timeline reality:</strong> Prohibited practices already in effect (Feb 2, 2025). High-risk AI systems deadline: <strong className="text-error-800 dark:text-error-200">August 2, 2026</strong> — <span className="font-bold text-error-800 dark:text-error-200">~6 months away</span>.
                         </p>
                     </div>
                 </motion.div>
@@ -1032,7 +1034,7 @@ const DisclaimerSection = () => (
     <section className="bg-secondary py-8">
         <div className="mx-auto w-full max-w-container px-4 md:px-8">
             <p className="text-center text-xs text-tertiary">
-                <strong>Disclaimer:</strong> This comparison is based on publicly available information as of December 2024. Pricing and features may change. Protectron.ai provides compliance management tools, not legal advice. Always consult qualified legal counsel for specific regulatory questions.
+                <strong>Disclaimer:</strong> This comparison is based on publicly available information as of January 2026. Pricing and features may change. Protectron.ai provides compliance management tools, not legal advice. Always consult qualified legal counsel for specific regulatory questions.
             </p>
         </div>
     </section>
