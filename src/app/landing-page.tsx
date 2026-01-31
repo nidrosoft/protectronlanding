@@ -1334,6 +1334,21 @@ const BuiltForAgentsSection = () => {
                     >
                         <CodeSnippet code={agentCode} language="python" />
                         
+                        {/* PII Redaction Callout - Key Privacy Feature */}
+                        <div className="mt-6 rounded-lg border border-success-200 bg-success-50 p-4 dark:border-success-800 dark:bg-success-900/20">
+                            <div className="flex items-start gap-3">
+                                <ShieldTick size="20" variant="Bold" className="mt-0.5 shrink-0 text-success-600 dark:text-success-400" />
+                                <div>
+                                    <p className="text-sm font-semibold text-success-700 dark:text-success-300">
+                                        Automatic PII Redaction Built-In
+                                    </p>
+                                    <p className="mt-1 text-sm text-success-600 dark:text-success-400">
+                                        The only compliance SDK with native PII detection. Emails, phone numbers, and sensitive data are automatically redacted before logging — no third-party tools required.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div className="mt-6 flex flex-wrap items-center gap-3">
                             <span className="text-sm text-tertiary">Works with:</span>
                             <span className="inline-flex items-center gap-2 rounded-full bg-tertiary px-3 py-1.5 text-sm font-medium text-secondary">
@@ -1595,6 +1610,7 @@ const PricingSection = () => {
             description: "For large orgs with custom needs",
             priceLabel: "Custom pricing",
             buttonText: "Contact Sales",
+            buttonHref: "mailto:nidrosoft@outlook.com?subject=Protectron%20Enterprise%20Inquiry",
             featuresTitle: "Everything in Scale, plus:",
             features: [
                 { text: "Unlimited AI systems" },

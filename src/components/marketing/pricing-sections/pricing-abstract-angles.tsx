@@ -115,6 +115,7 @@ export const PricingAbstractAngles = () => {
             ],
             icon: Building07,
             buttonText: "Contact Sales",
+            buttonHref: "mailto:nidrosoft@outlook.com?subject=Protectron%20Enterprise%20Inquiry",
         },
     ];
 

@@ -31,25 +31,88 @@ export const CodeSnippet: FC<CodeSnippetProps> = ({ code, language = "python", f
     };
     
     const highlightCode = (text: string) => {
-        return text
-            // Decorators (must be before other replacements)
-            .replace(/(@\w+(?:\.\w+)*)/g, '<span class="text-yellow-300">$1</span>')
-            // Keywords
-            .replace(/\b(from|import|def|class|return|if|else|elif|for|while|try|except|with|as|pass|None|True|False|and|or|not|in|is|async|await)\b/g, '<span class="text-pink-400">$1</span>')
-            // Built-in functions
-            .replace(/\b(print|len|range|str|int|float|list|dict|set|tuple|type|isinstance|hasattr|getattr|setattr)\b/g, '<span class="text-cyan-400">$1</span>')
-            // Triple-quoted strings
-            .replace(/("""[\s\S]*?"""|'''[\s\S]*?''')/g, '<span class="text-green-400">$1</span>')
-            // Double-quoted strings
-            .replace(/("(?:[^"\\]|\\.)*")/g, '<span class="text-green-400">$1</span>')
-            // Single-quoted strings  
-            .replace(/('(?:[^'\\]|\\.)*')/g, '<span class="text-green-400">$1</span>')
-            // Function definitions and calls
-            .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(/g, '<span class="text-blue-400">$1</span>(')
-            // Numbers
-            .replace(/\b(\d+\.?\d*)\b/g, '<span class="text-orange-400">$1</span>')
-            // Self keyword
-            .replace(/\b(self)\b/g, '<span class="text-red-400">$1</span>');
+        // Use a token-based approach to avoid overlapping replacements
+        const tokens: { start: number; end: number; className: string; text: string }[] = [];
+        
+        // Helper to add token if no overlap
+        const addToken = (match: RegExpExecArray, className: string) => {
+            const start = match.index;
+            const end = start + match[0].length;
+            // Check for overlap with existing tokens
+            const hasOverlap = tokens.some(t => 
+                (start >= t.start && start < t.end) || (end > t.start && end <= t.end)
+            );
+            if (!hasOverlap) {
+                tokens.push({ start, end, className, text: match[0] });
+            }
+        };
+        
+        // Order matters: strings first (to avoid highlighting inside strings)
+        // Double-quoted strings
+        let match;
+        const doubleStringRegex = /"(?:[^"\\]|\\.)*"/g;
+        while ((match = doubleStringRegex.exec(text)) !== null) {
+            addToken(match, 'text-green-400');
+        }
+        
+        // Single-quoted strings
+        const singleStringRegex = /'(?:[^'\\]|\\.)*'/g;
+        while ((match = singleStringRegex.exec(text)) !== null) {
+            addToken(match, 'text-green-400');
+        }
+        
+        // Decorators
+        const decoratorRegex = /@\w+(?:\.\w+)*/g;
+        while ((match = decoratorRegex.exec(text)) !== null) {
+            addToken(match, 'text-yellow-300');
+        }
+        
+        // Keywords
+        const keywordRegex = /\b(from|import|def|class|return|if|else|elif|for|while|try|except|with|as|pass|None|True|False|and|or|not|in|is|async|await)\b/g;
+        while ((match = keywordRegex.exec(text)) !== null) {
+            addToken(match, 'text-pink-400');
+        }
+        
+        // Built-in functions
+        const builtinRegex = /\b(print|len|range|str|int|float|list|dict|set|tuple|type|isinstance|hasattr|getattr|setattr)\b/g;
+        while ((match = builtinRegex.exec(text)) !== null) {
+            addToken(match, 'text-cyan-400');
+        }
+        
+        // Function calls (capture just the name, not the paren)
+        const funcRegex = /\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(/g;
+        while ((match = funcRegex.exec(text)) !== null) {
+            const funcMatch = { ...match, index: match.index, 0: match[1] } as RegExpExecArray;
+            funcMatch[0] = match[1];
+            addToken(funcMatch, 'text-blue-400');
+        }
+        
+        // Numbers (but not inside already-tokenized strings)
+        const numberRegex = /\b(\d+\.?\d*)\b/g;
+        while ((match = numberRegex.exec(text)) !== null) {
+            addToken(match, 'text-orange-400');
+        }
+        
+        // Self keyword
+        const selfRegex = /\b(self)\b/g;
+        while ((match = selfRegex.exec(text)) !== null) {
+            addToken(match, 'text-red-400');
+        }
+        
+        // Sort tokens by start position
+        tokens.sort((a, b) => a.start - b.start);
+        
+        // Build result string
+        let result = '';
+        let lastEnd = 0;
+        for (const token of tokens) {
+            result += text.slice(lastEnd, token.start);
+            result += `<span class="${token.className}">${token.text}</span>`;
+            lastEnd = token.end;
+        }
+        result += text.slice(lastEnd);
+        
+        return result;
     };
 
     return (

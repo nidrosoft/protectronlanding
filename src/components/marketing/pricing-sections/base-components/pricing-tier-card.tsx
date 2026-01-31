@@ -86,6 +86,7 @@ interface PricingTierCardProps {
     className?: string;
     badge?: string;
     buttonText?: string;
+    buttonHref?: string;
 }
 
 export const PricingTierCardIcon = (props: PricingTierCardProps) => {
@@ -121,7 +122,7 @@ export const PricingTierCardIcon = (props: PricingTierCardProps) => {
                 "mt-auto flex flex-col gap-3 rounded-b-2xl border-t px-6 pt-6 pb-8 md:p-8",
                 isPopular ? "border-brand-500 bg-brand-700" : "border-secondary bg-secondary"
             )}>
-                <Button size="xl" href="https://app.protectron.ai" color={isPopular ? "secondary" : "primary"}>
+                <Button size="xl" href={props.buttonHref || "https://app.protectron.ai"} color={isPopular ? "secondary" : "primary"}>
                     {props.buttonText || "Get started"}
                 </Button>
             </div>
