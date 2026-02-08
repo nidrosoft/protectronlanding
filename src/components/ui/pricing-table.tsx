@@ -82,7 +82,7 @@ export function Pricing({
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {tiers.map((tier, index) => (
             <motion.div
               key={tier.name}
@@ -93,7 +93,7 @@ export function Pricing({
             >
               <Card
                 className={cn(
-                  "bg-primary border-secondary p-6 flex flex-col h-full",
+                  "bg-primary border-secondary p-5 flex flex-col h-full",
                   tier.isPrimary && "ring-2 ring-brand-500 relative"
                 )}
               >
@@ -106,25 +106,25 @@ export function Pricing({
                 )}
                 
                 {/* Tier Header */}
-                <div className="mb-6">
-                  <h3 className="text-xl font-bold text-primary mb-2">{tier.name}</h3>
-                  <p className="text-sm text-tertiary leading-relaxed">{tier.description}</p>
+                <div className="mb-4">
+                  <h3 className="text-lg font-bold text-primary mb-1">{tier.name}</h3>
+                  <p className="text-xs text-tertiary leading-relaxed">{tier.description}</p>
                 </div>
 
                 {/* Price */}
-                <div className="mb-6">
+                <div className="mb-4">
                   {tier.price !== undefined ? (
                     <div className="flex items-baseline gap-1">
-                      <span className="text-4xl font-bold text-primary">
+                      <span className="text-3xl font-bold text-primary">
                         €{isAnnual && tier.annualPrice ? tier.annualPrice : tier.price}
                       </span>
-                      <span className="text-tertiary">/mo</span>
+                      <span className="text-tertiary text-sm">/mo</span>
                     </div>
                   ) : (
-                    <div className="text-xl font-semibold text-primary">{tier.priceLabel}</div>
+                    <div className="text-lg font-semibold text-primary">{tier.priceLabel}</div>
                   )}
                   {tier.price !== undefined && (
-                    <p className="text-sm text-tertiary mt-1">
+                    <p className="text-xs text-tertiary mt-1">
                       {isAnnual ? "billed annually" : "billed monthly"}
                     </p>
                   )}
@@ -136,7 +136,7 @@ export function Pricing({
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className={cn(
-                    "w-full py-3 px-4 rounded-lg font-semibold text-sm mb-6 transition-colors text-center block",
+                    "w-full py-2.5 px-3 rounded-lg font-semibold text-xs mb-4 transition-colors text-center block",
                     tier.isPrimary
                       ? "bg-brand-600 hover:bg-brand-700 text-white"
                       : tier.priceLabel 
@@ -149,15 +149,15 @@ export function Pricing({
 
                 {/* Features Title */}
                 {tier.featuresTitle && (
-                  <div className="mb-4 text-sm font-semibold text-secondary">{tier.featuresTitle}</div>
+                  <div className="mb-3 text-xs font-semibold text-secondary">{tier.featuresTitle}</div>
                 )}
 
                 {/* Features List */}
-                <div className="space-y-3 flex-1">
+                <div className="space-y-2 flex-1">
                   {tier.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-success-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-tertiary leading-relaxed">{feature.text}</span>
+                    <div key={featureIndex} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-success-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs text-tertiary leading-relaxed">{feature.text}</span>
                     </div>
                   ))}
                 </div>
